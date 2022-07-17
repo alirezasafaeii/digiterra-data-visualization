@@ -1,13 +1,13 @@
-import './App.css';
-import AppRouter from './router/AppRouter';
+// import "./App.css";
+import Layout from "./components/generalComponents/layout/Layout";
+import AppRouter from "./router/AppRouter";
 
 function App() {
-
   return (
-    <div className="App">
+    <Layout>
       <AppRouter />
-    </div>
-  )
+    </Layout>
+  );
 }
 
 export default App;
