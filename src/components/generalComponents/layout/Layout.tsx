@@ -1,4 +1,5 @@
 import { FC, ReactNode } from "react";
+import TopBar from "../topBar/TopBar";
 import styles from "./layout.module.css";
 
 interface ILayoutProps {
@@ -7,7 +8,7 @@ interface ILayoutProps {
 const Layout: FC<ILayoutProps> = ({ children }) => {
   return (
     <div className={styles.layoutContainer}>
-      <div className={styles.topBar}>TopBar</div>
+      <TopBar />
       <div className={styles.layoutContent}>{children}</div>
     </div>
   );

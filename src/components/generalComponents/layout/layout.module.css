@@ -14,12 +14,3 @@
   min-height: 100vh;
   background-color: lightgray;
 }
-.topBar {
-  display: flex;
-  align-items: center;
-  position: fixed;
-  padding: .3rem;
-  width: 100vw;
-  height: 50px;
-  background-color: lightgreen;
-}
