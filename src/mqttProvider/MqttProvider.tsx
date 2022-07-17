@@ -2,11 +2,11 @@ import { createContext, FC, ReactNode, useState, useEffect } from "react";
 import mqtt from "precompiled-mqtt";
 
 type MqttContextType = {
-  message: number[] | null;
+  message: number[];
 };
 
 export const MqttContext = createContext<MqttContextType>({
-  message: null,
+  message: [],
 });
 
 interface IMqttProviderProps {
@@ -16,7 +16,7 @@ interface IMqttProviderProps {
 let host = "ws://138.68.8.53:8000/mqtt";
 let clientId = "digiterra-coding-task-1";
 export const MqttProvider: FC<IMqttProviderProps> = ({ children }) => {
-  const [message, setMessage] = useState(null);
+  const [message, setMessage] = useState([]);
 
   useEffect(() => {
     const options = {
@@ -54,9 +54,6 @@ export const MqttProvider: FC<IMqttProviderProps> = ({ children }) => {
     });
 
     client.on("message", (topic: any, message: any, packet: any) => {
-      console.log("messageee 1 topic :>> ", topic);
-      console.log("messageee 2 message :>> ", message);
-      console.log("messageee 3 packet :>> ", packet);
       setMessage(message);
     });
 
