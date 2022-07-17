@@ -2,9 +2,14 @@ import { FC, useContext } from "react";
 import { MqttContext } from "../../../mqttProvider/MqttProvider";
 
 const ChartsA: FC = () => {
-  const { state } = useContext(MqttContext);
+  const { message } = useContext(MqttContext);
+  console.log("messageeeeee :>> ", message);
 
-  return <div>Welcome to ChartsA Page! {state}</div>;
+  return (
+    <div>
+      Welcome to ChartsA Page! { message}
+    </div>
+  );
 };
 
 export default ChartsA;

@@ -7,8 +7,8 @@ const Home: FC = () => {
   return(
     <div>
       Welcome to Home Page!
-      <button onClick={() => navigate("/ChartA")}>Charts A</button>
-      <button onClick={() => navigate("/chartB")}>Charts B</button>
+      <button onClick={() => navigate("/ChartsA")}>Charts A</button>
+      <button onClick={() => navigate("/chartsB")}>Charts B</button>
     </div>
   )
 }
