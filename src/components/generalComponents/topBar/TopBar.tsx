@@ -1,16 +1,38 @@
 import { FC } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./topBar.module.css";
 
 const TopBar: FC = () => {
   let navigate = useNavigate();
+  const location = useLocation();
 
   return (
-      <div className={styles.topBar}>
-        <button onClick={() => navigate("/home")}>Home</button>
-        <button onClick={() => navigate("/chartsA")}>Charts A</button>
-        <button onClick={() => navigate("/chartsB")}>Charts B</button>
-      </div>
+    <div className={`flex fixed items-center p-3 w-full h-14 bg-blue-100`}>
+      <button
+        onClick={() => navigate("/home")}
+        className={`${
+          (location?.pathname === "/home" || location?.pathname === "/") ? "text-blue-700" : "text-slate-800"
+        } mx-6 block py-2 pr-4 pl-3 text-white bg-blue-700 rounded bg-transparent p-0`}
+      >
+        Home
+      </button>
+      <button
+        onClick={() => navigate("/chartsA")}
+        className={`${
+          location?.pathname === "/chartsA" ? "text-blue-700" : "text-slate-800"
+        } mx-6 block py-2 pr-4 pl-3 text-white bg-blue-700 rounded bg-transparent p-0`}
+      >
+        Charts A
+      </button>
+      <button
+        onClick={() => navigate("/chartsB")}
+        className={`${
+          location?.pathname === "/chartsB" ? "text-blue-700" : "text-slate-800"
+        } mx-6 block py-2 pr-4 pl-3 text-white bg-blue-700 rounded bg-transparent p-0`}
+      >
+        Charts B
+      </button>
+    </div>
   );
 };
 

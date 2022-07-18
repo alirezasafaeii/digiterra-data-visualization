@@ -121,22 +121,29 @@ const ChartsB: FC = () => {
   }, [message]);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      {/* <div>Welcome to ChartsB Page! {message}</div> */}
-      <div>
-        <ErrorBoundary>
-          <Line options={optionsTop} data={lineData} />
-        </ErrorBoundary>
+    <div className={`w-full sm:flex md:flex flex-wrap`}>
+      <div className="flex justify-center sm:w-full md:w-1/2 lg:w-1/3">
+        <div className="w-full m-6 block rounded-lg shadow-lg bg-white max-w-sm">
+          <ErrorBoundary>
+            <Line options={optionsTop} data={lineData} />
+          </ErrorBoundary>
+        </div>
       </div>
-      <div>
-        <ErrorBoundary>
-          <Bar options={optionsTop} data={barData} />
-        </ErrorBoundary>
+
+      <div className="flex justify-center sm:w-full md:w-1/2 lg:w-1/3">
+        <div className="w-full m-6 block rounded-lg shadow-lg bg-white max-w-sm">
+          <ErrorBoundary>
+            <Bar options={optionsTop} data={barData} />
+          </ErrorBoundary>
+        </div>
       </div>
-      <div>
-        <ErrorBoundary>
-          <Scatter options={optionsScatter} data={scatterData} />
-        </ErrorBoundary>
+
+      <div className="flex justify-center sm:w-full md:w-1/2 lg:w-1/3">
+        <div className="w-full m-6 block rounded-lg shadow-lg bg-white max-w-sm">
+          <ErrorBoundary>
+            <Scatter options={optionsScatter} data={scatterData} />
+          </ErrorBoundary>
+        </div>
       </div>
     </div>
   );

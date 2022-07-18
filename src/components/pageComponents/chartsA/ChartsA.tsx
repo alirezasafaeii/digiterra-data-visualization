@@ -71,32 +71,41 @@ const ChartsA: FC = () => {
             ?.map((item, index) => ({
               x: item,
               y: index,
-              r: item / 3,
+              r: item / 6,
             })),
           backgroundColor: "rgba(255, 99, 132, .5)",
         },
       ],
     };
 
+    const _message = [...message];
     const _polarData = {
       labels: [
-        "(Red < 0)",
-        "(0 < Blue < 30)",
-        "(30 < Yellow < 60)",
-        "(60 < Green < 90)",
-        "(90 < Purple < 100)",
-        "(100 < Orange)",
+        `${_message?.filter((item) => item < 0)?.length}-(Red < 0)`,
+        `${
+          _message?.filter((item) => item > 0 && item < 30)?.length
+        }(0 < Blue < 30)`,
+        `${
+          _message?.filter((item) => item > 30 && item < 60)?.length
+        }(30 < Yellow < 60)`,
+        `${
+          _message?.filter((item) => item > 60 && item < 90)?.length
+        }(60 < Green < 90)`,
+        `${
+          _message?.filter((item) => item > 90 && item < 100)?.length
+        }(90 < Purple < 100)`,
+        `${_message?.filter((item) => item > 100)?.length}(100 < Orange)`,
       ],
       datasets: [
         {
           label: "# of Votes",
           data: [
-            message?.filter((item) => item < 0)?.length,
-            message?.filter((item) => item > 0 && item < 30)?.length,
-            message?.filter((item) => item > 30 && item < 60)?.length,
-            message?.filter((item) => item > 60 && item < 90)?.length,
-            message?.filter((item) => item > 90 && item < 100)?.length,
-            message?.filter((item) => item > 100)?.length,
+            _message?.filter((item) => item < 0)?.length,
+            _message?.filter((item) => item > 0 && item < 30)?.length,
+            _message?.filter((item) => item > 30 && item < 60)?.length,
+            _message?.filter((item) => item > 60 && item < 90)?.length,
+            _message?.filter((item) => item > 90 && item < 100)?.length,
+            _message?.filter((item) => item > 100)?.length,
           ],
           backgroundColor: [
             "rgba(255, 99, 132, 0.5)",
@@ -115,21 +124,29 @@ const ChartsA: FC = () => {
   }, [message]);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <div>
-        <ErrorBoundary>
-          <Bubble options={optionsScatter} data={bubbleData} />
-        </ErrorBoundary>
+    <div className={`w-full sm:flex md:flex flex-wrap`}>
+      <div className="flex justify-center sm:w-full md:w-1/2 lg:w-1/3">
+        <div className="w-full m-6 block rounded-lg shadow-lg bg-white max-w-sm">
+          <ErrorBoundary>
+            <Bubble options={optionsScatter} data={bubbleData} />
+          </ErrorBoundary>
+        </div>
       </div>
-      <div>
-        <ErrorBoundary>
-          <PolarArea data={polarData} />
-        </ErrorBoundary>
+
+      <div className="flex justify-center sm:w-full md:w-1/2 lg:w-1/3">
+        <div className="w-full m-6 block rounded-lg shadow-lg bg-white max-w-sm">
+          <ErrorBoundary>
+            <PolarArea data={polarData} />
+          </ErrorBoundary>
+        </div>
       </div>
-      <div>
-        <ErrorBoundary>
-          <Pie data={polarData} />
-        </ErrorBoundary>
+
+      <div className="flex justify-center sm:w-full md:w-1/2 lg:w-1/3">
+        <div className="w-full m-6 block rounded-lg shadow-lg bg-white max-w-sm">
+          <ErrorBoundary>
+            <Pie data={polarData} />
+          </ErrorBoundary>
+        </div>
       </div>
     </div>
   );
