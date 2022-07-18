@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import styles from "./topBar.module.css";
 
 const TopBar: FC = () => {
   let navigate = useNavigate();
@@ -12,7 +11,7 @@ const TopBar: FC = () => {
         onClick={() => navigate("/home")}
         className={`${
           (location?.pathname === "/home" || location?.pathname === "/") ? "text-blue-700" : "text-slate-800"
-        } mx-6 block py-2 pr-4 pl-3 text-white bg-blue-700 rounded bg-transparent p-0`}
+        } mx-6 block py-2 pr-4 pl-3 bg-blue-700 rounded bg-transparent p-0`}
       >
         Home
       </button>
@@ -20,7 +19,7 @@ const TopBar: FC = () => {
         onClick={() => navigate("/chartsA")}
         className={`${
           location?.pathname === "/chartsA" ? "text-blue-700" : "text-slate-800"
-        } mx-6 block py-2 pr-4 pl-3 text-white bg-blue-700 rounded bg-transparent p-0`}
+        } mx-6 block py-2 pr-4 pl-3 bg-blue-700 rounded bg-transparent p-0`}
       >
         Charts A
       </button>
@@ -28,7 +27,7 @@ const TopBar: FC = () => {
         onClick={() => navigate("/chartsB")}
         className={`${
           location?.pathname === "/chartsB" ? "text-blue-700" : "text-slate-800"
-        } mx-6 block py-2 pr-4 pl-3 text-white bg-blue-700 rounded bg-transparent p-0`}
+        } mx-6 block py-2 pr-4 pl-3 bg-blue-700 rounded bg-transparent p-0`}
       >
         Charts B
       </button>

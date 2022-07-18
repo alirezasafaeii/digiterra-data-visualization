@@ -1,6 +1,5 @@
 import { FC, ReactNode } from "react";
 import TopBar from "../topBar/TopBar";
-import styles from "./layout.module.css";
 
 interface ILayoutProps {
   children: ReactNode;
